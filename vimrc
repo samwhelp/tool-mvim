@@ -30,6 +30,7 @@ function! s:ColorSchemePick () abort
 	colorscheme space_vim_theme
 	"colorscheme monokai
 	"colorscheme gruvbox
+	"colorscheme onedark
 
 
 	" ## ubuntu default colorscheme
@@ -65,10 +66,15 @@ function! s:ColorSchemeUse () abort
 	try
 		call s:ColorSchemePick()
 	catch
-		echomsg ' '
-		echomsg '+NotInstall ColorScheme:'
-		echomsg '    # Please install first:'
-		echomsg ':PlugInstall'
+		"echomsg ' '
+		"echomsg '+NotInstall ColorScheme:'
+		"echomsg '    # Please install first:'
+		"echomsg ':PlugInstall'
+
+		echohl WarningMsg
+		echomsg 'ColorScheme is not installed! Please run :PlugInstall'
+		echohl None
+
 		return
 	endtry
 
@@ -95,6 +101,9 @@ function! s:PlugColorScheme () abort
 
 	" ## https://github.com/morhetz/gruvbox
 	Plug 'morhetz/gruvbox'
+
+	" ## https://github.com/joshdick/onedark.vim
+	"Plug 'joshdick/onedark.vim'
 
 endfunction
 
@@ -246,7 +255,12 @@ function! s:Main () abort
 
 	call s:PluginManager('~/.cache/mvim/plug')
 
-	call s:ColorSchemeUse()
+	"call s:ColorSchemeUse()
+
+	augroup ColorSchemeUse
+		autocmd!
+		autocmd VimEnter * call s:ColorSchemeUse()
+	augroup END
 
 endfunction
 
@@ -254,4 +268,32 @@ call s:Main()
 
 ""
 """ Tail: Main
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: Note
+""
+
+
+" $ vim -nNRe -u vimrc -c 'try | :PlugInstall | endtry'
+" $ vim -nNRe -u vimrc -c 'try | :PlugInstall | finally | :qa! | endtry'
+" $ vim -nNRe -u vimrc -c 'try | :PlugInstall | catch | echomsg "!PlugInstall Error!" | finally | :qa! | endtry'
+" $ vim -nNRe -u vim-plug-install.vim
+
+" function! s:TryInstallPlugin () abort
+" 	try
+" 		PlugInstall
+" 	catch
+" 		echomsg '!PlugInstall Error!'
+" 	finally
+" 		qa!
+" 	endtry
+" endfunction
+
+
+""
+""" Tail: Note
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
