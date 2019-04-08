@@ -13,8 +13,6 @@ scriptencoding utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: ColorScheme
 ""
@@ -153,7 +151,6 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: PlugMvim
 ""
@@ -197,11 +194,18 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: PluginManager
 ""
+
+function! s:PluginInControl () abort
+	call s:PlugEnhance()
+
+	call s:PlugColorScheme()
+	call s:PlugFcitx()
+	call s:PlugMvim()
+endfunction
+
 
 function! s:PluginManager (dir_path) abort
 
@@ -226,17 +230,10 @@ function! s:PluginManager (dir_path) abort
 		return
 	endtry
 
-	call s:PlugEnhance()
-
-	call s:PlugColorScheme()
-	call s:PlugFcitx()
-	call s:PlugMvim()
+	call s:PluginInControl()
 
 	" Initialize plugin system
 	call plug#end()
-
-
-
 
 endfunction
 
@@ -245,17 +242,11 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: Main
 ""
 
-function! s:Main () abort
-
-	call s:PluginManager('~/.cache/mvim/plug')
-
-	"call s:ColorSchemeUse()
+function! s:ColorSchemeUseOnVimEnter() abort
 
 	augroup ColorSchemeUse
 		autocmd!
@@ -264,13 +255,22 @@ function! s:Main () abort
 
 endfunction
 
+
+function! s:Main () abort
+
+	call s:PluginManager('~/.cache/mvim/plug')
+
+	"call s:ColorSchemeUse()
+	
+	call s:ColorSchemeUseOnVimEnter()
+
+endfunction
+
 call s:Main()
 
 ""
 """ Tail: Main
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
