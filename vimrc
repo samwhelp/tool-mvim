@@ -1,5 +1,6 @@
 
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: Base
 ""
@@ -14,7 +15,7 @@ scriptencoding utf-8
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Head: ColorScheme
+""" Head: ColorSchemePick
 ""
 
 function! s:ColorSchemePick () abort
@@ -59,36 +60,17 @@ function! s:ColorSchemePick () abort
 endfunction
 
 
-function! s:ColorSchemeUse () abort
-
-	try
-		call s:ColorSchemePick()
-	catch
-		"echomsg ' '
-		"echomsg '+NotInstall ColorScheme:'
-		"echomsg '    # Please install first:'
-		"echomsg ':PlugInstall'
-
-		echohl WarningMsg
-		echomsg 'ColorScheme is not installed! Please run :PlugInstall'
-		echohl None
-
-		return
-	endtry
-
-endfunction
-
 ""
-""" Tail: ColorScheme
+""" Tail: ColorSchemePick
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Head: PlugColorScheme
+""" Head: ColorSchemePlug
 ""
 
 
-function! s:PlugColorScheme () abort
+function! s:ColorSchemePlug () abort
 
 	" ## https://www.jianshu.com/p/aadce0fe9649
 	" ## https://github.com/liuchengxu/space-vim-theme
@@ -106,7 +88,7 @@ function! s:PlugColorScheme () abort
 endfunction
 
 ""
-""" Tail: PlugColorScheme
+""" Tail: ColorSchemePlug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -132,6 +114,40 @@ endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PlugEleLine
+""
+
+function! s:PlugEleLine () abort
+
+	" ## eleline
+	" https://github.com/liuchengxu/eleline.vim
+	Plug 'liuchengxu/eleline.vim'
+
+
+endfunction
+
+""
+""" Tail: PlugEleLine
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: ConfEleLine
+""
+
+function! s:ConfEleLine () abort
+
+
+
+
+endfunction
+
+""
+""" Tail: ConfEleLine
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: PlugFcitx
 ""
 
@@ -139,9 +155,6 @@ function! s:PlugFcitx () abort
 
 	" ## https://github.com/lilydjwg/fcitx.vim
 	Plug 'lilydjwg/fcitx.vim'
-
-	" :help 'ttimeoutlen'
-	set ttimeoutlen=100
 
 
 endfunction
@@ -152,27 +165,27 @@ endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: ConfFcitx
+""
+
+function! s:ConfFcitx () abort
+
+	" :help 'ttimeoutlen'
+	set ttimeoutlen=100
+
+
+endfunction
+
+""
+""" Tail: ConfFcitx
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: PlugMvim
 ""
 
 function! s:PlugMvim () abort
-
-	" ## WhichKey
-	" https://www.jianshu.com/p/e47f7ec27cea
-	" https://github.com/liuchengxu/vim-which-key
-
-	"Plug 'liuchengxu/vim-which-key'
-	" On-demand lazy load
-	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-	" To register the descriptions when using the on-demand load feature, use the autocmd hook to call which#register(),
-	" e.g., register for the Space key(see more configuration details in the following sections):
-	" autocmd! User vim-which-key call which#register('<Space>', 'g:which_key_map')
-
-
-	" ## eleline
-	" https://github.com/liuchengxu/eleline.vim
-	Plug 'liuchengxu/eleline.vim'
-
 
 	" ## Mvim
 	" https://github.com/samwhelp/tool-svim-core
@@ -182,9 +195,7 @@ function! s:PlugMvim () abort
 	Plug 'samwhelp/tool-svim-colorfit'
 
 	" https://github.com/samwhelp/tool-mvim-core
-	Plug 'samwhelp/tool-mvim-core'
-
-
+	"Plug 'samwhelp/tool-mvim-core'
 
 
 endfunction
@@ -195,17 +206,175 @@ endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Head: PluginManager
+""" Head: ConfMvim
+""
+
+function! s:ConfMvim () abort
+
+
+
+endfunction
+
+""
+""" Tail: ConfMvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PlugNerdTree
+""
+
+function! s:PlugNerdTree () abort
+
+	" ## https://github.com/scrooloose/nerdtree
+	Plug 'scrooloose/nerdtree'
+
+
+endfunction
+
+""
+""" Tail: PlugNerdTree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: ConfNerdTree
+""
+
+function! s:ConfNerdTree () abort
+
+	nnoremap ,t :NERDTreeToggle<cr>
+
+endfunction
+
+""
+""" Tail: ConfNerdTree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PlugWhichKey
+""
+
+function! s:PlugWhichKey () abort
+
+	" ## WhichKey
+	" https://www.jianshu.com/p/e47f7ec27cea
+	" https://github.com/liuchengxu/vim-which-key
+
+	Plug 'liuchengxu/vim-which-key'
+	" On-demand lazy load
+	"Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+	" To register the descriptions when using the on-demand load feature, use the autocmd hook to call which#register(),
+	" e.g., register for the Space key(see more configuration details in the following sections):
+	" autocmd! User vim-which-key call which#register('<Space>', 'g:which_key_map')
+
+
+endfunction
+
+""
+""" Tail: PlugWhichKey
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: ConfWhichKey
+""
+
+function! s:ConfWhichKey () abort
+
+	" https://www.jianshu.com/p/e47f7ec27cea
+	" https://github.com/liuchengxu/space-vim-theme
+
+	" ## WhichKey Show
+	nnoremap <silent> , :<c-u>WhichKey  ','<CR>
+	nnoremap <silent> t :<c-u>WhichKey  't'<CR>
+	nnoremap <silent> <Bslash> :<c-u>WhichKey  '<Bslash>'<CR>
+
+
+endfunction
+
+""
+""" Tail: ConfWhichKey
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PackPlugBase
+""
+
+function! s:PackPlugBase () abort
+
+	call s:PlugEleLine()
+	call s:PlugFcitx()
+	call s:PlugMvim()
+	call s:PlugNerdTree()
+	call s:PlugWhichKey()
+
+endfunction
+
+""
+""" Tail: PackPlugBase
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PackConfBase
+""
+
+function! s:PackConfBase () abort
+
+	call s:ConfEleLine()
+	call s:ConfFcitx()
+	call s:ConfMvim()
+	call s:ConfNerdTree()
+	call s:ConfWhichKey()
+
+endfunction
+
+""
+""" Tail: PackConfBase
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: ConfigInControl
+""
+
+function! s:ConfigInControl () abort
+
+	call s:PackConfBase()
+
+endfunction
+
+
+""
+""" Tail: ConfigInControl
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PluginInControl
 ""
 
 function! s:PluginInControl () abort
+
+	call s:PackPlugBase()
 	call s:PlugEnhance()
 
-	call s:PlugColorScheme()
-	call s:PlugFcitx()
-	call s:PlugMvim()
+	call s:ColorSchemePlug()
+
 endfunction
 
+
+""
+""" Tail: PluginInControl
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PluginManager
+""
 
 function! s:PluginManager (dir_path) abort
 
@@ -243,8 +412,29 @@ endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Head: Main
+""" Head: ColorSchemeUse
 ""
+
+
+function! s:ColorSchemeUse () abort
+
+	try
+		call s:ColorSchemePick()
+	catch
+		" echomsg ' '
+		" echomsg '+NotInstall ColorScheme:'
+		" echomsg '    # Please install first:'
+		" echomsg ':PlugInstall'
+
+		echohl WarningMsg
+		echomsg 'ColorScheme is not installed! Please run :PlugInstall'
+		echohl None
+
+		return
+	endtry
+
+endfunction
+
 
 function! s:ColorSchemeUseOnVimEnter() abort
 
@@ -256,13 +446,24 @@ function! s:ColorSchemeUseOnVimEnter() abort
 endfunction
 
 
+""
+""" Tail: ColorSchemeUse
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: Main
+""
+
 function! s:Main () abort
 
 	call s:PluginManager('~/.cache/mvim/plug')
 
-	"call s:ColorSchemeUse()
-	
-	call s:ColorSchemeUseOnVimEnter()
+	call s:ColorSchemeUse()
+
+	"call s:ColorSchemeUseOnVimEnter()
+
+	call s:ConfigInControl()
 
 endfunction
 
@@ -297,3 +498,4 @@ call s:Main()
 ""
 """ Tail: Note
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
