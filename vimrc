@@ -114,6 +114,21 @@ endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: ConfEnhance
+""
+
+function! s:ConfEnhance () abort
+
+
+
+endfunction
+
+""
+""" Tail: ConfEnhance
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: PlugEleLine
 ""
 
@@ -344,6 +359,7 @@ endfunction
 function! s:ConfigInControl () abort
 
 	call s:PackConfBase()
+	call s:ConfEnhance()
 
 endfunction
 
