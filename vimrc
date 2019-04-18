@@ -197,6 +197,51 @@ endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PlugFm_Ranger
+""
+
+function! s:PlugFm_Ranger () abort
+
+	" ## ranger.vim
+	" https://ranger.github.io/
+	" https://github.com/ranger/ranger
+	" https://github.com/francoiscabrol/ranger.vim
+	Plug 'francoiscabrol/ranger.vim'
+
+	if has('nvim')
+		Plug 'rbgrouleff/bclose.vim'
+	endif
+
+	" Notice
+	" Install ranger first
+	" $ sudo apt-get install ranger
+
+endfunction
+
+""
+""" Tail: PlugFm_Ranger
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: ConfFm_Ranger
+""
+
+function! s:ConfFm_Ranger () abort
+
+
+	"nnoremap <Space>er :Ranger<CR>
+	nnoremap ,f :Ranger<CR>
+
+
+endfunction
+
+""
+""" Tail: ConfFm_Ranger
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: PlugMvim
 ""
 
@@ -322,6 +367,7 @@ function! s:PackPlugBase () abort
 
 	call s:PlugEleLine()
 	call s:PlugFcitx()
+	call s:PlugFm_Ranger()
 	call s:PlugMvim()
 	call s:PlugNerdTree()
 	call s:PlugWhichKey()
@@ -341,6 +387,7 @@ function! s:PackConfBase () abort
 
 	call s:ConfEleLine()
 	call s:ConfFcitx()
+	call s:ConfFm_Ranger()
 	call s:ConfMvim()
 	call s:ConfNerdTree()
 	call s:ConfWhichKey()
