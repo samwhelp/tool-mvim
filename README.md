@@ -66,10 +66,10 @@ Or read tool-svim-core/[README.md](https://github.com/samwhelp/tool-svim-core).
 
 ## Color Scheme Plugin
 
-* https://github.com/liuchengxu/space-vim-theme (default)
+* https://github.com/joshdick/onedark.vim (default)
+* https://github.com/liuchengxu/space-vim-theme 
 * https://github.com/sickill/vim-monokai
 * https://github.com/morhetz/gruvbox
-* https://github.com/joshdick/onedark.vim
 
 
 ## Enhance Version

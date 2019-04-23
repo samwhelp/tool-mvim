@@ -26,10 +26,10 @@ function! s:ColorSchemePick () abort
 
 
 	" ## pick colorscheme
-	colorscheme space_vim_theme
+	"colorscheme space_vim_theme
 	"colorscheme monokai
 	"colorscheme gruvbox
-	"colorscheme onedark
+	colorscheme onedark
 
 
 	" ## ubuntu default colorscheme
@@ -83,7 +83,7 @@ function! s:ColorSchemePlug () abort
 	Plug 'morhetz/gruvbox'
 
 	" ## https://github.com/joshdick/onedark.vim
-	"Plug 'joshdick/onedark.vim'
+	Plug 'joshdick/onedark.vim'
 
 endfunction
 
