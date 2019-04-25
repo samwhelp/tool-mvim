@@ -254,9 +254,11 @@ function! s:PlugMvim () abort
 	" https://github.com/samwhelp/tool-svim-colorfit
 	Plug 'samwhelp/tool-svim-colorfit'
 
+	" https://github.com/samwhelp/tool-svim-core-enhance
+	Plug 'samwhelp/tool-svim-core-enhance'
+
 	" https://github.com/samwhelp/tool-mvim-core
 	"Plug 'samwhelp/tool-mvim-core'
-
 
 endfunction
 
