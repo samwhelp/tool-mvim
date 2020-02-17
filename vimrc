@@ -197,6 +197,56 @@ endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: PlugFm_Lf
+""
+
+function! s:PlugFm_Lf () abort
+
+	" ## lf.vim
+	" https://github.com/gokcehan/lf
+	" https://github.com/ptzz/lf.vim
+	" https://github.com/francoiscabrol/ranger.vim
+	" https://github.com/rbgrouleff/bclose.vim
+	Plug 'ptzz/lf.vim'
+	"Plug 'rbgrouleff/bclose.vim'
+
+	if has('nvim')
+		Plug 'rbgrouleff/bclose.vim'
+	endif
+
+	" Notice
+	" Install lf first
+	" https://github.com/gokcehan/lf/releases
+	
+
+	" Or Use
+	" https://github.com/gokcehan/lf/blob/master/etc/lf.vim
+
+endfunction
+
+""
+""" Tail: PlugFm_Lf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Head: ConfFm_Lf
+""
+
+function! s:ConfFm_Lf () abort
+
+	nnoremap <Space>el :Lf<CR>
+	nnoremap ,f :Lf<CR>
+
+
+endfunction
+
+""
+""" Tail: ConfFm_Lf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Head: PlugFm_Ranger
 ""
 
@@ -230,8 +280,8 @@ endfunction
 function! s:ConfFm_Ranger () abort
 
 
-	"nnoremap <Space>er :Ranger<CR>
-	nnoremap ,f :Ranger<CR>
+	nnoremap <Space>er :Ranger<CR>
+	"nnoremap ,f :Ranger<CR>
 
 
 endfunction
@@ -369,6 +419,7 @@ function! s:PackPlugBase () abort
 
 	call s:PlugEleLine()
 	call s:PlugFcitx()
+	call s:PlugFm_Lf()
 	call s:PlugFm_Ranger()
 	call s:PlugMvim()
 	call s:PlugNerdTree()
@@ -389,6 +440,7 @@ function! s:PackConfBase () abort
 
 	call s:ConfEleLine()
 	call s:ConfFcitx()
+	call s:ConfFm_Lf()
 	call s:ConfFm_Ranger()
 	call s:ConfMvim()
 	call s:ConfNerdTree()

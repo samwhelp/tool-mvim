@@ -62,6 +62,7 @@ On [Normal Mode](https://vimhelp.org/index.txt.html#normal-index), some key map 
 * https://github.com/liuchengxu/eleline.vim
 * https://github.com/scrooloose/nerdtree
 * https://github.com/francoiscabrol/ranger.vim (Need: [ranger](https://github.com/ranger/ranger))
+* https://github.com/ptzz/lf.vim (Need: [lf](https://github.com/gokcehan/lf))
 
 
 ## Color Scheme Plugin
