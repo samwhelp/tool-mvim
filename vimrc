@@ -212,6 +212,7 @@ function! s:PlugFm_Lf () abort
 
 	if has('nvim')
 		Plug 'rbgrouleff/bclose.vim'
+		Plug 'voldikss/vim-floaterm'
 	endif
 
 	" Notice
