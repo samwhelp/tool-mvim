@@ -135,7 +135,7 @@ endfunction
 function! s:PlugEdit_BetterWhitespace () abort
 
 	" ## https://github.com/ntpeters/vim-better-whitespace
-	Plug 'Ntpeters/vim-better-whitespace'
+	Plug 'ntpeters/vim-better-whitespace'
 
 endfunction
 
