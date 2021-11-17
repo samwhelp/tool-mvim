@@ -1,2 +1,2 @@
-alias mvim='nvim -u $HOME/.vimrc-profile/mvim/init.vim'
+alias mvim='nvim -u $HOME/.local/share/vimrc-profile/mvim/init.vim'
 
